@@ -18,7 +18,7 @@ Tips for more testable code:
 
 Take some time to familiarise yourself with how the app works. For this part, it's important that you run the app in the browser and understand/experience it from a user's perspective (as opposed to only looking at the code). You can run the app by installing dependencies with `npm i` and then running `npm start`. The `start` script runs/serves the web page locally on your machine, so make sure it's still running when you run your test. (You can check if the web page is working by visiting the URL in a browser.)
 
-Set up and install Playwright using the documentation (https://playwright.dev/docs/intro). Then write an end-to-end test which checks the user journey/flow below:
+Set up and install Playwright using the documentation (https://.dev/docs/intro). Then write an end-to-end test which checks the user journey/flow below:
 
 > A user visits the site, adds a new todo to the list, deletes a todo from the list, refreshes the page and the todos are still persisted/saved.
 
