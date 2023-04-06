@@ -29,15 +29,25 @@
 
  import {test, expect} from "@playwright/test"
 
- const url= "http://localhost:3000/"
+ const url= "http://localhost:55199"
 
 test("testing url works", async ({page}) => {
 await page.goto(url)
-})
+});
 
-// adds a new todo to the list,
+
+// Test to check the placeholder text
+test ('has an input', async ({page})=> {
+  await page.goto(url);
+
+  const input = page.getByRole("textbox", {name:"task"});
+
+  await expect(input).toHaveAttribute('placeholder', 'Enter a task...');
+ });
+
+ // adds a new todo to the list,
  // navigate to the text box element 
- // enter a todo 
+ // enter a todo
  // press the button using .click 
  
 test("add a new todo to list", async ({page}) => {
@@ -67,8 +77,8 @@ test("Delete a todo from the list", async ({page}) => {
   const dateBox = page.getByText("Completion date", {type:"date"});
   await dateBox.type("07042023");
 
-const addButton = page.getByRole("button");
-await addButton.click();
+  const addButton = page.getByRole("button");
+  await addButton.click();
 
   const delButton = page.getByTitle("Delete this todo");
   await delButton.click();
@@ -85,4 +95,4 @@ await addButton.click();
 
   await page.reload();
 
- })
+ });
