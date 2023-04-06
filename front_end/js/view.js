@@ -103,13 +103,24 @@ function createElementForTask(task) {
  *
  * Note that this function only creates the element. It doesn't add it to the page.
  */
+// function createElementForCompletionDate(completionDate) {
+//   const element = document.createElement("time");
+//   const [ddmmyyyy] = completionDate.split("T");
+//   element.dateTime = ddmmyyyy;
+//   element.textContent = ddmmyyyy;
+//   return element;
+// }
+
 function createElementForCompletionDate(completionDate) {
   const element = document.createElement("time");
-  const [yyyymmdd] = completionDate.split("T");
-  element.dateTime = yyyymmdd;
-  element.textContent = yyyymmdd;
+  const [date, time] = completionDate.split("T");
+  const [yyyy, mm, dd] = date.split("-");
+  const ddmmyyyy = `${dd}/${mm}/${yyyy}`;
+  element.dateTime = ddmmyyyy;
+  element.textContent = ddmmyyyy;
   return element;
 }
+
 
 /**
  * Should take in a number representing a todo object's id and return a DOM element
