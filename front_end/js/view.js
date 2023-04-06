@@ -123,7 +123,7 @@ function createElementForCompletionDate(completionDate) {
  *
  * Note that this function only creates the element. It doesn't add it to the page.
  */
-function createDeleteButtonForTodoItem(todoId) {
+export function createDeleteButtonForTodoItem(todoId) {
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "🗑️";
   deleteButton.title = "Delete this todo";

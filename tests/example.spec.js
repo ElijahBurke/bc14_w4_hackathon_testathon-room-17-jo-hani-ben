@@ -29,7 +29,7 @@
 
  import {test, expect} from "@playwright/test"
 
- const url= "http://localhost:3000/"
+ const url= "http://localhost:51786/"
 
 test("testing url works", async ({page}) => {
 await page.goto(url)
@@ -57,4 +57,25 @@ test("add a new todo to list", async ({page}) => {
 
 
 // deletes a todo from the list,
+
+test("Delete a todo from the list", async ({page}) => {
+  await page.goto(url);
+
+  const inputBox = page.getByRole("textbox", {name:"task"});
+  await inputBox.type("wash the cat");
+
+  const dateBox = page.getByText("Completion date", {type:"date"});
+  await dateBox.type("07042023");
+
+const addButton = page.getByRole("button");
+await addButton.click();
+
+ const delButton = page.getByTitle("Delete this todo");
+ await delButton.click();
+
+});
+
+
+
+
 // refreshes the page and the todos are still persisted/saved
