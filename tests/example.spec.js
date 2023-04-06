@@ -29,7 +29,7 @@
 
  import {test, expect} from "@playwright/test"
 
- const url= "http://localhost:55199"
+ const url= "http://localhost:3000"
 
 test("testing url works", async ({page}) => {
 await page.goto(url)
